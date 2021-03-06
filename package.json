@@ -33,7 +33,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "npm run lint:eslint:fix",
+      "npm run format && npm run lint:eslint:fix",
       "git add --force"
     ],
     "*.{ts,tsx,js,jsx,json}": [
