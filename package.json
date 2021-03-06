@@ -11,6 +11,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "bootstrap": "^4.6.0",
+    "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",
     "react-dom": "^17.0.1",
@@ -35,7 +36,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "npm run format && npm run lint:eslint:fix",
+      "npm run lint:eslint:fix",
       "git add --force"
     ],
     "*.{ts,tsx,js,jsx,json}": [
