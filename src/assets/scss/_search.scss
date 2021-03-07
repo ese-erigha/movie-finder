@@ -1,33 +1,36 @@
-.searchbar{
-    position: relative;
-    width: 300px;
-    height: 40px;
-    padding: 5px 15px 5px 15px;
-    border: 2px solid $white;
-    border-radius: 40px;
+.searchbar {
+  position: relative;
+  width: 300px;
+  height: 40px;
+  padding: 5px 15px 5px 15px;
+  border: 2px solid $white;
+  border-radius: 40px;
 
-    .searchbar-input{
-        height: 30px;
-        border: none;
-        color: $white;
-        &:focus{
-            color:$white;
-            background-color: $black;
-            border-color: transparent;
-            box-shadow: none;
-            outline: none;
-        }
-        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color: $white;
-            opacity: 1; /* Firefox */
-          }
-          
-          &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-            color: $white;
-          }
-          
-          &::-ms-input-placeholder { /* Microsoft Edge */
-            color: $white;
-          }
+  .searchbar-input {
+    height: 30px;
+    border: none;
+    color: $white;
+    &:focus {
+      color: $white;
+      background-color: $black;
+      border-color: transparent;
+      box-shadow: none;
+      outline: none;
     }
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $white;
+      opacity: 1; /* Firefox */
+    }
+
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: $white;
+    }
+
+    &::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: $white;
+    }
+  }
 }

@@ -1,32 +1,32 @@
 @import './theme';
 
-.no-border-radius{
-    border-radius: 0%;
+.no-border-radius {
+  border-radius: 0%;
 }
-.white{
-    color: $white;
-}
-
-.bg-black{
-    background-color: black !important; 
+.white {
+  color: $white;
 }
 
-.space-left{
-    margin-left: 5px;
-}
-.footer{
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
-
-    .heart{
-        color: red;
-    }
+.bg-black {
+  background-color: black !important;
 }
 
-.mt-6{
-    margin-top: 6px;
+.space-left {
+  margin-left: 5px;
 }
-.mt-80{
-    margin-top: 80px;
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+
+  .heart {
+    color: red;
+  }
+}
+
+.mt-6 {
+  margin-top: 6px;
+}
+.mt-80 {
+  margin-top: 80px;
 }
