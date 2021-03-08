@@ -1,5 +1,9 @@
 @import './theme';
 
+body{
+  background-color: $black;
+}
+
 .no-border-radius {
   border-radius: 0%;
 }

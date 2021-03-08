@@ -28,20 +28,3 @@
     }
   }
 }
-
-.home {
-  .movie-gallery {
-    background: $white;
-    padding: 0px;
-    margin-bottom: 30px;
-
-    .list-title{
-      display: none;
-    }
-
-    .image-gallery-image {
-      height: 400px;
-      object-fit: cover;
-    }
-  }
-}
