@@ -1,7 +1,7 @@
 import React from 'react';
 import { MOVIE_IMAGE_URL } from 'api/movie';
 
-const MovieBackDrop = () => {
+const BackDrop = () => {
   console.log('Hello');
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const backdrop_path = '/fRrpOILyXuWaWLmqF7kXeMVwITQ.jpg';
@@ -17,4 +17,4 @@ const MovieBackDrop = () => {
     />
   );
 };
-export default MovieBackDrop;
+export default BackDrop;

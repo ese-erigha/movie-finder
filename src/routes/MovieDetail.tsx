@@ -1,14 +1,20 @@
 import React from 'react';
-import MovieBackDrop from 'components/MovieBackDrop';
-import MovieDescription from 'components/MovieDescription';
+import BackDrop from 'components/movie/BackDrop';
+import Description from 'components/movie/Description';
+import Cast from 'components/movie/Cast';
+import Gallery from 'components/movie/Gallery';
+import RecommendationList from 'components/movie/RecommendationList';
 
 const MovieDetail = () => {
   console.log('Hello');
   return (
     <>
-      <MovieBackDrop />
-      <div className="d-flex flex-coulmn container">
-        <MovieDescription />
+      <BackDrop />
+      <div className="d-flex flex-column">
+        <Description />
+        <Cast />
+        <Gallery />
+        <RecommendationList />
       </div>
     </>
   );

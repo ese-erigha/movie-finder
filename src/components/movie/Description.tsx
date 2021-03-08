@@ -2,13 +2,13 @@ import React from 'react';
 import { MOVIE_IMAGE_URL } from 'api/movie';
 import Image from 'react-bootstrap/Image';
 
-const MovieDescription = () => {
+const Description = () => {
   console.log('Hello');
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const poster_path = '/95S6PinQIvVe4uJAd82a2iGZ0rA.jpg';
   return (
     <div className="movie">
-      <Image src={`${MOVIE_IMAGE_URL.medium}${poster_path}`} />
+      <Image src={`${MOVIE_IMAGE_URL.medium}${poster_path}`} className="movie__img" />
       <div className="movie__info d-flex flex-column justify-content-between p-3 align-items-start">
         <h2>Black Water: Abyss</h2>
         <h6 className="movie__tagline">Descend into fear</h6>
@@ -53,4 +53,4 @@ const MovieDescription = () => {
     </div>
   );
 };
-export default MovieDescription;
+export default Description;
