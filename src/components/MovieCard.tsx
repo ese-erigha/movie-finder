@@ -13,7 +13,7 @@ const MovieCard = () => {
         />
         <Card.Body>
           <span className="card-rating text-center">7.4</span>
-          <Card.Title className="mb-1 mr-4">Tom and Jerry</Card.Title>
+          <Card.Title className="mr-4">Tom and Jerry</Card.Title>
           <p className="small mb-0">Drama, Fiction, Science Fiction</p>
         </Card.Body>
       </a>
