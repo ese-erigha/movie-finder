@@ -1,31 +1,30 @@
 .movie-gallery {
-    background: $black;
-    padding: 30px;
-  
-    .list-title {
-      font-size: 2em;
-      font-weight: 300;
-      color: rgb(134, 124, 124);
-      text-transform: uppercase;
-      background: #fbf8ec;
-      background: linear-gradient(to bottom, #ffffff 35%, #4e6773 100%);
+  background: $black;
+  padding: 30px;
+
+  .list-title {
+    font-size: 2em;
+    font-weight: 300;
+    color: rgb(134, 124, 124);
+    text-transform: uppercase;
+    background: #fbf8ec;
+    background: linear-gradient(to bottom, #ffffff 35%, #4e6773 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &.list-title-dark {
+      color: $gray-800;
+      background: $gray-700;
+      background: linear-gradient(to bottom, $gray-500 35%, $gray-800 100%);
       background-clip: text;
       -webkit-text-fill-color: transparent;
-    
-      &.list-title-dark {
-        color: $gray-800;
-        background: $gray-700;
-        background: linear-gradient(to bottom, $gray-500 35%, $gray-800 100%);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+    }
   }
 
-  .fullscreen{
-
-    .image-gallery-image{
-      height: calc(100vh - 80px)!important;
-      object-fit: cover!important;
+  .fullscreen {
+    .image-gallery-image {
+      height: calc(100vh - 80px) !important;
+      object-fit: cover !important;
     }
   }
 }
@@ -36,7 +35,7 @@
     padding: 0px;
     margin-bottom: 30px;
 
-    .image-gallery-image{
+    .image-gallery-image {
       height: 400px;
       object-fit: cover;
     }
