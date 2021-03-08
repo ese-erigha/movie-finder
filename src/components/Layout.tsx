@@ -11,8 +11,10 @@ const Layout = (props: Props) => {
   return (
     <>
       <Navbar />
-      <div className="container mt-80">{children}</div>
-      <Footer />
+      <div className="container mt-100">
+        {children}
+        <Footer />
+      </div>
     </>
   );
 };

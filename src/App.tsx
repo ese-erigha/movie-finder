@@ -1,8 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-import 'assets/scss/custom.scss';
 import Layout from 'components/Layout';
+import 'assets/scss/custom.scss';
 
 const Home = lazy(() => import('routes/Home'));
 function App() {

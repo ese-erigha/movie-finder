@@ -8,25 +8,12 @@
 }
 
 .bg-black {
-  background-color: black !important;
-}
-
-.space-left {
-  margin-left: 5px;
-}
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-
-  .heart {
-    color: red;
-  }
+  background-color: $black !important;
 }
 
 .mt-6 {
   margin-top: 6px;
 }
-.mt-80 {
-  margin-top: 80px;
+.mt-100 {
+  margin-top: 100px;
 }

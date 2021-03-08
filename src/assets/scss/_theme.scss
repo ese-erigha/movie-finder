@@ -1,6 +1,9 @@
 @import './bootstrap';
 
-@import './variables'; // custom
-@import './animations'; // custom
-@import './reset'; //custom
+@import './variables';
+@import './mixins';
+@import './animations';
+@import './reset';
 @import './search';
+@import './card';
+@import './footer';
