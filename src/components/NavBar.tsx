@@ -9,7 +9,7 @@ import tmdbLogo from 'assets/img/tmdb_logo.png';
 const NavBar = () => (
   <Navbar fixed="top" bg="dark" variant="dark" expand="md" className="bg-black">
     <Container>
-      <Navbar.Brand href="/">MovieX</Navbar.Brand>
+      <Navbar.Brand href="/">MovieFlix</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
