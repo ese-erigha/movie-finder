@@ -11,7 +11,7 @@ const MovieCard = () => {
         <Card.Img
           className="fadeIn animated"
           variant="top"
-          src="https://image.tmdb.org/t/p/w300/95S6PinQIvVe4uJAd82a2iGZ0rA.jpg"
+          src="https://image.tmdb.org/t/p/w300/6KErczPBROQty7QoIsaa6wJYXZi.jpg"
         />
         <Card.Body>
           <span className="card-rating text-center">7.4</span>
