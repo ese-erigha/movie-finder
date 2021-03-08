@@ -1,40 +1,41 @@
-.movie-card{
-    border-radius: 2px;
-    box-shadow: 0 6px 10px -4px rgb(0, 0, 0 / 15%);
+.movie-card {
+  border-radius: 2px;
+  box-shadow: 0 6px 10px -4px rgb(0, 0, 0 / 15%);
+  background-color: transparent;
+  color: #333;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  border: 0;
+  width: 200px;
+  -webkit-transition: box-shadow 0.1s ease, -webkit-transform 0.2s cubic-bezier(0.34, 2, 0.6, 1);
+  transition: box-shadow 0.1s ease, -webkit-transform 0.2s cubic-bezier(0.34, 2, 0.6, 1);
+  transition: transform 0.2s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.1s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.1s ease,
+    -webkit-transform 0.2s cubic-bezier(0.34, 2, 0.6, 1);
+
+  a {
     background-color: transparent;
-    color: #333;
-    margin-bottom: 20px;
+    &:not(.btn) {
+      color: #444;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &:not(.card-register) {
+    cursor: pointer;
+  }
+
+  .card-body {
+    background-color: $black;
+    min-height: 125px;
+    color: #dee2e6;
     position: relative;
-    z-index: 1;
-    border: 0;
-    width: 200px;
-    -webkit-transition: box-shadow .1s ease,-webkit-transform .2s cubic-bezier(.34,2,.6,1);
-    transition: box-shadow .1s ease,-webkit-transform .2s cubic-bezier(.34,2,.6,1);
-    transition: transform .2s cubic-bezier(.34,2,.6,1),box-shadow .1s ease;
-    transition: transform .2s cubic-bezier(.34,2,.6,1),box-shadow .1s ease,-webkit-transform .2s cubic-bezier(.34,2,.6,1);
+  }
 
-    a {
-        background-color: transparent;
-        &:not(.btn){
-            color: #444;
-        }
-        &:hover{
-            text-decoration: none;
-        }
-    }
-    &:not(.card-register) {
-        cursor: pointer;
-    }
-
-    .card-body{
-        background-color: $black;
-        min-height: 125px;
-        color: #dee2e6;
-        position: relative; 
-    }
-
-    .card-rating{
-        position: absolute;
+  .card-rating {
+    position: absolute;
     right: 7px;
     top: 7px;
     background-color: #212529;
@@ -43,27 +44,27 @@
     display: block;
     z-index: 100;
     min-width: 35px;
-    font-size: .8em;
+    font-size: 0.8em;
     border-radius: 50%;
     border: 2px solid #343a40;
-    }
+  }
 }
 
-@include media-responsive(max-width,991px){
-        .movie-card {
-            width: 300px;
-        }
-    }
+@include media-responsive(max-width, 991px) {
+  .movie-card {
+    width: 300px;
+  }
+}
 
-    @include media-responsive(max-width,766px){
-        .movie-card {
-            width: 230px;
-            margin-right: 20px;
-        }
-    }
+@include media-responsive(max-width, 766px) {
+  .movie-card {
+    width: 230px;
+    margin-right: 20px;
+  }
+}
 
-    @include media-responsive(max-width,576px){
-        .movie-card {
-            width: 300px;
-        }
-    }
+@include media-responsive(max-width, 576px) {
+  .movie-card {
+    width: 300px;
+  }
+}
