@@ -7,6 +7,7 @@ const MovieCard = () => {
     <Card className="movie-card">
       <a href="https://api-cinema-10d15.firebaseapp.com/movie/587807">
         <Card.Img
+          className="fadeIn animated"
           variant="top"
           src="https://image.tmdb.org/t/p/w300/6KErczPBROQty7QoIsaa6wJYXZi.jpg"
         />

@@ -6,13 +6,10 @@
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
-  border: 0;
+  border: 0 none;
   width: 200px;
-  -webkit-transition: box-shadow 0.1s ease, -webkit-transform 0.2s cubic-bezier(0.34, 2, 0.6, 1);
-  transition: box-shadow 0.1s ease, -webkit-transform 0.2s cubic-bezier(0.34, 2, 0.6, 1);
-  transition: transform 0.2s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.1s ease;
-  transition: transform 0.2s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.1s ease,
-    -webkit-transform 0.2s cubic-bezier(0.34, 2, 0.6, 1);
+  transition: transform 200ms cubic-bezier(0.34, 2, 0.6, 1),
+  box-shadow 100ms ease;
 
   a {
     background-color: transparent;
@@ -21,10 +18,18 @@
     }
     &:hover {
       text-decoration: none;
+      color: $black;
+    }
+    &:focus {
+      color: $black;
     }
   }
   &:not(.card-register) {
     cursor: pointer;
+    &:hover {
+      box-shadow: 0px 12px 19px -7px rgba(0, 0, 0, 0.3);
+      transform: translateY(-10px);
+    }
   }
 
   .card-body {
