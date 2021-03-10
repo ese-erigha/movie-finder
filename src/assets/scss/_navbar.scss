@@ -1,12 +1,12 @@
 .nav-menu {
-    .nav-item {
-      .filter {
-        &.nav-link.active{
-            background-color: $green;
-            border: 1px solid $green;
-        }
+  .nav-item {
+    .filter {
+      &.nav-link.active {
+        background-color: $green;
+        border: 1px solid $green;
       }
     }
+  }
 }
 
 @include media-responsive(max-width, 991px) {
