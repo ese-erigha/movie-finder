@@ -1,0 +1,9 @@
+@include media-responsive(max-width, 991px) {
+    .nav-menu {
+        .nav-item {
+            .filter {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}

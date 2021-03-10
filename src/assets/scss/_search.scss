@@ -34,3 +34,9 @@
     }
   }
 }
+
+@include media-responsive(max-width, 991px) {
+  .searchbar {
+      width: 250px;
+  }
+}
