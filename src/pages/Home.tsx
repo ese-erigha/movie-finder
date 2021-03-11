@@ -1,5 +1,5 @@
-import MovieList from 'components/MovieList';
 import React from 'react';
+import MovieList from 'components/MovieList';
 import { Helmet } from 'react-helmet';
 
 const Home = () => {
