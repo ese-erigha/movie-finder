@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 const MovieCard = () => {
-  console.log('Hello');
+  console.log();
   // /95S6PinQIvVe4uJAd82a2iGZ0rA.jpg
   // /6KErczPBROQty7QoIsaa6wJYXZi.jpg
   return (

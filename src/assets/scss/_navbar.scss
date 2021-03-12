@@ -1,9 +1,13 @@
 .nav-menu {
   .nav-item {
     .filter {
-      &.nav-link.active {
-        background-color: $green;
-        border: 1px solid $green;
+      &.nav-link{
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+        &.active {
+          background-color: $green;
+          border: 1px solid $green;
+        }
       }
     }
   }
@@ -13,7 +17,7 @@
   .nav-menu {
     .nav-item {
       .filter {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
       }
     }
   }

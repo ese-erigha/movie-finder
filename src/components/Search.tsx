@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 
 const Search = (): JSX.Element => {
-  console.log('Hello');
+  console.log();
   return (
     <div className="searchbar d-flex justify-content-center align-items-center">
       <i className="fa fa-search white" aria-hidden="true" />

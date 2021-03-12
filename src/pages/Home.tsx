@@ -1,10 +1,17 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import MovieList from 'components/MovieList';
 import { Helmet } from 'react-helmet';
 
-const Home = () => {
-  console.log('Hello');
+type RouteParams = {
+  category?: string;
+  page?: string;
+};
 
+const Home = () => {
+  console.log();
+  const res = useParams<RouteParams>();
+  console.log(res);
   return (
     <>
       <Helmet>
