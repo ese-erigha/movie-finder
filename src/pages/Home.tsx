@@ -1,9 +1,9 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { getMovies, getGenres } from 'api/movieService';
 import MovieList from 'components/MovieList';
-import { routeFilters } from 'helper';
+import { getPathsFromCurrentLocation, routeFilters } from 'helper';
 import { Genre, Genres, MovieResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { AppContext } from 'context/AppContext';
@@ -18,7 +18,15 @@ const Home = () => {
   const [genres, setGenres] = useState<Genre[]>([]);
   const [movieResponse, setMovieResponse] = useState<MovieResponse>();
   const routeParams = useParams<RouteParams>();
+  const history = useHistory();
+  const { pathname } = useLocation();
   const pageParam = page ?? (routeParams.page ? parseInt(routeParams.page, 10) : 1);
+
+  const pageChangeHandler = (data: { selected: number }) => {
+    const { basePath, param } = getPathsFromCurrentLocation(pathname);
+    history.push(`/${basePath}/${param ?? routeFilters[0].key}/${data.selected + 1}`);
+    window.scrollTo(0, 0);
+  };
 
   const fetchData = useCallback(async () => {
     let movieGenres: Genres = {};
@@ -51,6 +59,7 @@ const Home = () => {
         genres={genres}
         pageCount={movieResponse.total_pages}
         initialPage={initialPage}
+        onPageChange={pageChangeHandler}
       />
     </>
   );
