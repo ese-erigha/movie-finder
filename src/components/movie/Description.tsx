@@ -1,5 +1,5 @@
 import React from 'react';
-import { MOVIE_IMAGE_URL } from 'api/movieService';
+import { MOVIE_DB_IMAGE_URL } from 'api/movieService';
 import Image from 'react-bootstrap/Image';
 
 const Description = () => {
@@ -8,7 +8,7 @@ const Description = () => {
   const poster_path = '/95S6PinQIvVe4uJAd82a2iGZ0rA.jpg';
   return (
     <div className="movie">
-      <Image src={`${MOVIE_IMAGE_URL.medium}${poster_path}`} className="movie__img" />
+      <Image src={`${MOVIE_DB_IMAGE_URL.medium}${poster_path}`} className="movie__img" />
       <div className="movie__info d-flex flex-column justify-content-between p-3 align-items-start">
         <h2>Black Water: Abyss</h2>
         <h6 className="movie__tagline">Descend into fear</h6>

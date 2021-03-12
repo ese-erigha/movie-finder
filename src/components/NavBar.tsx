@@ -5,28 +5,22 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Search from 'components/Search';
+import { routeFilters } from 'helper';
 
 const ROOT_PATH = 'movies';
-
-const filters = [
-  { key: 'popular', value: 'Popular' },
-  { key: 'now_playing', value: 'Now playing' },
-  { key: 'top_rated', value: 'Top rated' },
-  { key: 'upcoming', value: 'Upcoming' },
-];
 
 const getRouteFilterKey = (pathname: string) => {
   const paths = pathname.split('/');
   const basePath = paths[1].toLowerCase();
   const param = paths[2] ?? null;
-  if (basePath === ROOT_PATH) return param || filters[0].key;
+  if (basePath === ROOT_PATH) return param || routeFilters[0].key;
   return null;
 };
 
 const NavBar = () => {
   const { pathname } = useLocation();
   const routeFilterKey = getRouteFilterKey(pathname);
-  const navItems = filters.map((item) => {
+  const navItems = routeFilters.map((item) => {
     const navItemClass = classNames({
       filter: true,
       active: item.key === routeFilterKey,

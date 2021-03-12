@@ -1,22 +1,24 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import MovieCard from 'components/MovieCard';
+import { Genre, Movie } from 'types';
 
-const MovieList = () => {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-  const props = {
-    pageCount: 200,
-    initialPage: 12,
-  };
+type Props = {
+  movies: Movie[];
+  genres: Genre[];
+  pageCount: number;
+  initialPage: number;
+};
 
+const MovieList = (props: Props) => {
   const handlePageClick = (data: { selected: number }) => {
     console.log(data);
   };
   return (
     <>
       <div className="d-flex flex-wrap justify-content-md-between justify-content-center">
-        {arr.map((item) => (
-          <MovieCard key={item} />
+        {props.movies.map((movie) => (
+          <MovieCard key={movie.title} movie={movie} genres={props.genres} />
         ))}
       </div>
       <ReactPaginate

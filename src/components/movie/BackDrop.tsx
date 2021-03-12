@@ -1,5 +1,5 @@
 import React from 'react';
-import { MOVIE_IMAGE_URL } from 'api/movieService';
+import { MOVIE_DB_IMAGE_URL } from 'api/movieService';
 
 const BackDrop = () => {
   console.log('Hello');
@@ -11,7 +11,7 @@ const BackDrop = () => {
       style={{
         backgroundSize: 'cover',
         backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0, .5)), url("${
-          MOVIE_IMAGE_URL.large + backdrop_path
+          MOVIE_DB_IMAGE_URL.large + backdrop_path
         }")`,
       }}
     />
