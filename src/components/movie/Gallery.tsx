@@ -1,6 +1,6 @@
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
-import { MOVIE_IMAGE_URL } from 'api/movie';
+import { MOVIE_IMAGE_URL } from 'api/movieService';
 
 import 'react-image-gallery/styles/scss/image-gallery.scss';
 

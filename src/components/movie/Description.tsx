@@ -1,5 +1,5 @@
 import React from 'react';
-import { MOVIE_IMAGE_URL } from 'api/movie';
+import { MOVIE_IMAGE_URL } from 'api/movieService';
 import Image from 'react-bootstrap/Image';
 
 const Description = () => {

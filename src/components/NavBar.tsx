@@ -6,6 +6,8 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Search from 'components/Search';
 
+const ROOT_PATH = 'movies';
+
 const filters = [
   { key: 'popular', value: 'Popular' },
   { key: 'now_playing', value: 'Now playing' },
@@ -13,18 +15,17 @@ const filters = [
   { key: 'upcoming', value: 'Upcoming' },
 ];
 
-const getFilterKey = (pathname: string) => {
-  const routeSplit = pathname.split('/');
-  const basePath = routeSplit[1].toLowerCase();
-  const param = routeSplit[2] ?? null;
-  if (basePath === 'movies') return param || filters[0].key;
-
+const getRouteFilterKey = (pathname: string) => {
+  const paths = pathname.split('/');
+  const basePath = paths[1].toLowerCase();
+  const param = paths[2] ?? null;
+  if (basePath === ROOT_PATH) return param || filters[0].key;
   return null;
 };
 
 const NavBar = () => {
   const { pathname } = useLocation();
-  const routeFilterKey = getFilterKey(pathname);
+  const routeFilterKey = getRouteFilterKey(pathname);
   const navItems = filters.map((item) => {
     const navItemClass = classNames({
       filter: true,
@@ -33,7 +34,7 @@ const NavBar = () => {
 
     return (
       <Nav.Item key={item.value}>
-        <Nav.Link href={`/movies/${item.key}`} className={navItemClass}>
+        <Nav.Link href={`/${ROOT_PATH}/${item.key}`} className={navItemClass}>
           {item.value}
         </Nav.Link>
       </Nav.Item>

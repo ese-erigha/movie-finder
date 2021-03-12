@@ -1,5 +1,5 @@
 import React from 'react';
-import { MOVIE_IMAGE_URL } from 'api/movie';
+import { MOVIE_IMAGE_URL } from 'api/movieService';
 
 const BackDrop = () => {
   console.log('Hello');
