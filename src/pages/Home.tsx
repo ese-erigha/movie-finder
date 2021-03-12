@@ -1,11 +1,12 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import MovieList from 'components/MovieList';
 import { Helmet } from 'react-helmet';
 import { getMovies, getGenres } from 'api/movieService';
+import MovieList from 'components/MovieList';
 import { routeFilters } from 'helper';
 import { Genre, Genres, MovieResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
+import { AppContext } from 'context/AppContext';
 
 type RouteParams = {
   category?: string;
@@ -13,9 +14,11 @@ type RouteParams = {
 };
 
 const Home = () => {
+  const { page } = useContext(AppContext);
   const [genres, setGenres] = useState<Genre[]>([]);
   const [movieResponse, setMovieResponse] = useState<MovieResponse>();
   const routeParams = useParams<RouteParams>();
+  const pageParam = page ?? (routeParams.page ? parseInt(routeParams.page, 10) : 1);
 
   const fetchData = useCallback(async () => {
     let movieGenres: Genres = {};
@@ -24,14 +27,12 @@ const Home = () => {
     }
     const fetchedMovieResponse = await getMovies({
       category: routeParams.category ?? routeFilters[0].key,
-      page: routeParams.page ? parseInt(routeParams.page, 10) : 1,
+      page: pageParam,
     });
 
     setGenres(movieGenres?.genres ?? genres);
     setMovieResponse(fetchedMovieResponse);
-    console.log(movieGenres);
-    console.log(fetchedMovieResponse);
-  }, [genres, routeParams.category, routeParams.page]);
+  }, [genres, routeParams.category, pageParam]);
 
   useEffect(() => {
     fetchData();

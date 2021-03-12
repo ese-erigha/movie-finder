@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type Genre = {
   id: number;
   name: string;
@@ -28,4 +30,12 @@ export type MovieResponse = {
   results: Movie[];
   total_pages: number;
   total_results: number;
+};
+
+export type State = {
+  page?: string;
+};
+
+export type PageProps = {
+  children: ReactNode;
 };

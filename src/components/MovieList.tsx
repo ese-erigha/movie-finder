@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
+import { useHistory, useLocation } from 'react-router-dom';
 import MovieCard from 'components/MovieCard';
 import { Genre, Movie } from 'types';
+import { getPathsFromCurrentLocation, routeFilters } from 'helper';
 
 type Props = {
   movies: Movie[];
@@ -11,8 +13,13 @@ type Props = {
 };
 
 const MovieList = (props: Props) => {
+  const history = useHistory();
+  const { pathname } = useLocation();
+
   const handlePageClick = (data: { selected: number }) => {
-    console.log(data);
+    const { basePath, param } = getPathsFromCurrentLocation(pathname);
+    history.push(`/${basePath}/${param ?? routeFilters[0].key}/${data.selected + 1}`);
+    window.scrollTo(0, 0);
   };
   return (
     <>

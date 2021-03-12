@@ -5,15 +5,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Search from 'components/Search';
-import { routeFilters } from 'helper';
+import { getPathsFromCurrentLocation, routeFilters } from 'helper';
 
-const ROOT_PATH = 'movies';
+const HOME_PATH = 'movies';
 
 const getRouteFilterKey = (pathname: string) => {
-  const paths = pathname.split('/');
-  const basePath = paths[1].toLowerCase();
-  const param = paths[2] ?? null;
-  if (basePath === ROOT_PATH) return param || routeFilters[0].key;
+  const { basePath, param } = getPathsFromCurrentLocation(pathname);
+  if (basePath === HOME_PATH) return param || routeFilters[0].key;
   return null;
 };
 
@@ -28,7 +26,7 @@ const NavBar = () => {
 
     return (
       <Nav.Item key={item.value}>
-        <Nav.Link href={`/${ROOT_PATH}/${item.key}`} className={navItemClass}>
+        <Nav.Link href={`/${HOME_PATH}/${item.key}`} className={navItemClass}>
           {item.value}
         </Nav.Link>
       </Nav.Item>
