@@ -11,7 +11,6 @@ const Cast = (props: Props) => {
   const { actors } = props;
   const [showAll, setShowAll] = useState(false);
   const actorsToShow = showAll ? actors : actors.slice(0, 6);
-
   const showAllHandler = () => {
     setShowAll(!showAll);
   };
