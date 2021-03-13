@@ -3,11 +3,11 @@
   padding: 30px 0 0 30px;
 
   &__item {
+    background-color: rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
     margin-right: 30px;
     max-width: 150px;
     text-align: center;
-
     @media screen and (min-width: 991px) and (max-width: 1199px) {
       max-width: 120px;
     }
@@ -28,7 +28,8 @@
     align-items: center;
     justify-content: center;
     max-width: 150px;
-    height: 80%;
+    // height: 80%;
+    height: 225.39px; // height of image from tmdb
     @media screen and (min-width: 991px) and (max-width: 1199px) {
       max-width: 120px;
       height: 70%;
@@ -36,7 +37,6 @@
   }
 
   &__info {
-    background-color: rgba(0, 0, 0, 0.1);
     width: 100%;
     min-height: 50px;
     padding: 10px;
