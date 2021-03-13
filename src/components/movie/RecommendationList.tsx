@@ -1,16 +1,21 @@
 import React from 'react';
-// import MovieCard from 'components/MovieCard';
+import { Genre, Movie } from 'types';
+import MovieCard from 'components/MovieCard';
 
-const RecommendationList = () => {
-  console.log('Hello');
-  // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+type Props = {
+  movies: Movie[];
+  genres: Genre[];
+};
+const RecommendationList = (props: Props) => {
+  const { movies, genres } = props;
+
   return (
     <div className="movie-recommendations">
       <h3 className="list-title list-title-dark mb-4">Recommendations</h3>
       <div className="d-flex flex-wrap justify-content-center">
-        {/* {arr.map((item) => (
-          <MovieCard key={item} />
-        ))} */}
+        {movies.map((movie) => (
+          <MovieCard genres={genres} movie={movie} key={`m${movie.id}`} />
+        ))}
       </div>
     </div>
   );

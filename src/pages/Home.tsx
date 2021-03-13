@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { getMovies, getGenres } from 'api/movieService';
 import MovieList from 'components/MovieList';
 import { getPathsFromCurrentLocation, routeFilters } from 'helper';
-import { Genre, Genres, MovieResponse } from 'types';
+import { Genre, GenreResponse, MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
 
 type RouteParams = {
@@ -14,7 +14,7 @@ type RouteParams = {
 
 const Home = () => {
   const [genres, setGenres] = useState<Genre[]>([]);
-  const [movieResponse, setMovieResponse] = useState<MovieResponse>();
+  const [movieResponse, setMovieResponse] = useState<MoviesResponse>();
   const routeParams = useParams<RouteParams>();
   const history = useHistory();
   const { pathname } = useLocation();
@@ -28,7 +28,7 @@ const Home = () => {
   };
 
   const fetchData = useCallback(async () => {
-    let movieGenres: Genres = {};
+    let movieGenres: GenreResponse = {};
     if (!genres.length) {
       movieGenres = await getGenres();
     }
@@ -36,7 +36,6 @@ const Home = () => {
       category,
       page,
     });
-
     setGenres(movieGenres?.genres ?? genres);
     setMovieResponse(fetchedMovieResponse);
   }, [genres, category, page]);

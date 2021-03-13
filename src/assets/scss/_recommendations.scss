@@ -3,7 +3,7 @@
   padding: 30px;
   .movie-card {
     margin: 20px;
-
+    width: 200px;
     @media screen and (max-width: 991px) {
       width: 150px;
     }
