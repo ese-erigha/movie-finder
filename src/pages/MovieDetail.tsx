@@ -42,7 +42,6 @@ const MovieDetail = () => {
       getRecommendations(id),
       getGenres(),
     ]);
-    console.log(fetchedActors);
     setMovie(fetchedMovie);
     setPersonnnelResponse(fetchedActors);
     setImageResponse(fetchedImages);
