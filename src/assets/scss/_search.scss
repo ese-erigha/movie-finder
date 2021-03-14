@@ -1,13 +1,17 @@
 .searchbar {
   position: relative;
-  width: 300px;
+  width: 270px;
   height: 40px;
   padding: 5px 15px 5px 15px;
   border: 2px solid $white;
   border-radius: 40px;
 
-  .form-group {
-    margin-bottom: 0px;
+  form{
+    width: 100%;
+
+    .form-group {
+      margin-bottom: 0px;
+    }
   }
 
   .searchbar-input {
