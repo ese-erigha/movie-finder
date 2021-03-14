@@ -42,10 +42,13 @@ const Search = () => {
 
   if (!genres || !movieResponse) return <LoadingSpinner />;
   const initialPage = page ? parseInt(page, 10) - 1 : 0;
+  const titlePrefix = movieResponse.results?.length ? 'Search ' : 'No search ';
 
   return (
     <>
-      <h1 className="list-title mb-5">Search results for "{query}"</h1>
+      <h1 className="list-title mb-5">
+        {titlePrefix} results for "{query}"
+      </h1>
       <MovieList
         movies={movieResponse.results}
         genres={genres}
