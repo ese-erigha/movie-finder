@@ -23,6 +23,7 @@ const Search = () => {
 
   const pageChangeHandler = (data: { selected: number }) => {
     history.push(`/${SEARCH_PATH}/${query}/${data.selected + 1}`);
+    window.scrollTo(0, 0);
   };
 
   const fetchData = useCallback(async () => {
