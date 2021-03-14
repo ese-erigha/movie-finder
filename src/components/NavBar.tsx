@@ -42,9 +42,10 @@ const NavBar = () => {
           <Nav className="mr-auto">{navItems}</Nav>
           <Nav>
             <Nav.Item>
-              <Nav.Link eventKey={2}>
+              {/* Fixed issue with spacebar text in search via https://github.com/react-bootstrap/react-bootstrap/issues/2934   */}
+              <div className="nav-link">
                 <Search />
-              </Nav.Link>
+              </div>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
