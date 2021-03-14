@@ -6,6 +6,10 @@
   border: 2px solid $white;
   border-radius: 40px;
 
+  .form-group {
+    margin-bottom: 0px;
+  }
+
   .searchbar-input {
     height: 30px;
     border: none;

@@ -1,6 +1,7 @@
 import { getPathsFromCurrentLocation } from 'helper';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
+import FormGroup from 'react-bootstrap/FormGroup';
 import { useHistory, useLocation } from 'react-router-dom';
 import { SEARCH_PATH } from '../constants';
 
@@ -26,15 +27,19 @@ const Search = (): JSX.Element => {
   }, [basePath, input, param]);
 
   return (
-    <div className="searchbar d-flex justify-content-center align-items-center">
+    <div className="searchbar d-flex justify-content-start align-items-center">
       <i className="fa fa-search white" aria-hidden="true" />
-      <Form.Control
-        type="text"
-        placeholder="Search by movie title"
-        value={input}
-        onChange={onChangeHandler}
-        className="searchbar-input no-border-radius bg-black"
-      />
+      <Form>
+        <FormGroup>
+          <Form.Control
+            type="text"
+            placeholder="Search by movie title"
+            value={input}
+            onChange={onChangeHandler}
+            className="searchbar-input no-border-radius bg-black"
+          />
+        </FormGroup>
+      </Form>
     </div>
   );
 };
