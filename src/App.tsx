@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { AppContextProvider } from 'context/AppContext';
+import { AppContextProvider } from 'context/AppContextManager';
 import Layout from 'components/Layout';
 import LoadingSpinner from 'components/LoadingSpinner';
 import Routes from './routes';

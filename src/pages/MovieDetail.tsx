@@ -5,7 +5,7 @@ import Cast from 'components/movie/Cast';
 import Gallery from 'components/movie/Gallery';
 import RecommendationList from 'components/movie/RecommendationList';
 import { useParams } from 'react-router-dom';
-import { Genre, ImageResponse, Movie, MoviesResponse, PersonnelResponse } from 'types';
+import { ImageResponse, Movie, MoviesResponse, PersonnelResponse } from 'types';
 import {
   getActors,
   getGenres,
@@ -14,6 +14,7 @@ import {
   getRecommendations,
 } from 'api/movieService';
 import LoadingSpinner from 'components/LoadingSpinner';
+import { useAppContext } from 'context/AppContextManager';
 
 type RouteParams = {
   id: string;
@@ -21,21 +22,14 @@ type RouteParams = {
 
 const MovieDetail = () => {
   const { id } = useParams<RouteParams>();
-
+  const { genres } = useAppContext();
   const [movie, setMovie] = useState<Movie>();
-  const [genres, setGenres] = useState<Genre[]>();
   const [personnelResponse, setPersonnnelResponse] = useState<PersonnelResponse>();
   const [imageResponse, setImageResponse] = useState<ImageResponse>();
   const [moviesResponse, setMoviesResponse] = useState<MoviesResponse>();
 
   const fetchData = useCallback(async () => {
-    const [
-      fetchedMovie,
-      fetchedActors,
-      fetchedImages,
-      fetchedRecommendations,
-      fetchedGenres,
-    ] = await Promise.all([
+    const [fetchedMovie, fetchedActors, fetchedImages, fetchedRecommendations] = await Promise.all([
       getMovie(id),
       getActors(id),
       getMovieImages(id),
@@ -46,7 +40,6 @@ const MovieDetail = () => {
     setPersonnnelResponse(fetchedActors);
     setImageResponse(fetchedImages);
     setMoviesResponse(fetchedRecommendations);
-    setGenres(fetchedGenres!.genres);
   }, [id]);
 
   useEffect(() => {

@@ -4,8 +4,9 @@ import { Helmet } from 'react-helmet';
 import { getMovies, getGenres } from 'api/movieService';
 import MovieList from 'components/MovieList';
 import { getPathsFromCurrentLocation, routeFilters } from 'helper';
-import { Genre, GenreResponse, MoviesResponse } from 'types';
+import { GenreResponse, MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
+import { useAppContext } from 'context/AppContextManager';
 
 type RouteParams = {
   category?: string;
@@ -13,7 +14,8 @@ type RouteParams = {
 };
 
 const Home = () => {
-  const [genres, setGenres] = useState<Genre[]>([]);
+  const { genres, setGenres } = useAppContext();
+  console.log(genres);
   const [movieResponse, setMovieResponse] = useState<MoviesResponse>();
   const routeParams = useParams<RouteParams>();
   const history = useHistory();
@@ -38,7 +40,7 @@ const Home = () => {
     });
     setGenres(movieGenres?.genres ?? genres);
     setMovieResponse(fetchedMovieResponse);
-  }, [genres, category, page]);
+  }, [genres, category, page, setGenres]);
 
   useEffect(() => {
     fetchData();
