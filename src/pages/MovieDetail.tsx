@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import BackDrop from 'components/movie/BackDrop';
 import Description from 'components/movie/Description';
 import Cast from 'components/movie/Cast';
@@ -10,6 +11,7 @@ import { getActors, getMovie, getMovieImages, getRecommendations } from 'api/mov
 import LoadingSpinner from 'components/LoadingSpinner';
 import { useAppContext } from 'context/AppContextManager';
 import { fetchGenres } from 'helper';
+import { WEBSITE_NAME } from '../constants';
 
 type RouteParams = {
   id: string;
@@ -53,6 +55,9 @@ const MovieDetail = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{`${movie.title} / ${WEBSITE_NAME}`}</title>
+      </Helmet>
       <BackDrop {...movie} />
       <div className="d-flex flex-column">
         <Description {...movie} />

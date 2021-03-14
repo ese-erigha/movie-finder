@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import MovieList from 'components/MovieList';
 import { useAppContext } from 'context/AppContextManager';
 import { usePrevious } from 'hooks/usePrevious';
@@ -7,7 +8,7 @@ import { searchMovies } from 'api/movieService';
 import { MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { fetchGenres, getInitialPage } from 'helper';
-import { SEARCH_PATH } from '../constants';
+import { SEARCH_PATH, WEBSITE_NAME } from '../constants';
 
 type RouteParams = {
   query: string;
@@ -52,6 +53,9 @@ const Search = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{`${query} / ${WEBSITE_NAME}`}</title>
+      </Helmet>
       <h1 className="list-title mb-5">
         {titlePrefix} results for "{query}"
       </h1>

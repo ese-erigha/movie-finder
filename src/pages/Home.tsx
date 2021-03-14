@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { getMovies } from 'api/movieService';
 import MovieList from 'components/MovieList';
 import { fetchGenres, getInitialPage, getPathsFromCurrentLocation, routeFilters } from 'helper';
 import { FetchParams, MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { useAppContext } from 'context/AppContextManager';
+import { WEBSITE_NAME } from '../constants';
 
 const Home = () => {
   const { genres, setGenres } = useAppContext();
@@ -41,11 +42,12 @@ const Home = () => {
 
   if (!genres.length || !movieResponse) return <LoadingSpinner />;
   const initialPage = getInitialPage(routeParams.page);
+  const route = routeFilters.find((item) => item.key === category);
 
   return (
     <>
       <Helmet>
-        <title>MFlix</title>
+        <title>{`${route!.value} / ${WEBSITE_NAME}`}</title>
       </Helmet>
       <MovieList
         movies={movieResponse.results}
