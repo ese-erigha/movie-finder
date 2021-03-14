@@ -36,7 +36,7 @@ const NavBar = () => {
   return (
     <Navbar fixed="top" bg="dark" variant="dark" expand="md" className="nav-menu bg-black">
       <Container>
-        <Navbar.Brand href="/">MovieFlix</Navbar.Brand>
+        <Navbar.Brand href="/">MFlix</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">{navItems}</Nav>

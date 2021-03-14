@@ -80,3 +80,8 @@ export type ImageResponse = {
   backdrops: Image[];
   posters: Image[];
 };
+
+export interface FetchParams {
+  category: string;
+  page: string;
+}

@@ -1,22 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { getMovies, getGenres } from 'api/movieService';
+import { getMovies } from 'api/movieService';
 import MovieList from 'components/MovieList';
-import { getPathsFromCurrentLocation, routeFilters } from 'helper';
-import { GenreResponse, MoviesResponse } from 'types';
+import { fetchGenres, getInitialPage, getPathsFromCurrentLocation, routeFilters } from 'helper';
+import { FetchParams, MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { useAppContext } from 'context/AppContextManager';
-
-type RouteParams = {
-  category?: string;
-  page?: string;
-};
 
 const Home = () => {
   const { genres, setGenres } = useAppContext();
   const [movieResponse, setMovieResponse] = useState<MoviesResponse>();
-  const routeParams = useParams<RouteParams>();
+  const routeParams = useParams<Partial<FetchParams>>();
   const history = useHistory();
   const { pathname } = useLocation();
   const page = routeParams.page ? parseInt(routeParams.page, 10) : 1;
@@ -29,15 +24,14 @@ const Home = () => {
   };
 
   const fetchData = useCallback(async () => {
-    let movieGenres: GenreResponse = {};
-    if (!genres.length) {
-      movieGenres = await getGenres();
-    }
-    const fetchedMovieResponse = await getMovies({
-      category,
-      page,
-    });
-    setGenres(movieGenres?.genres ?? genres);
+    const [fetchedGenres, fetchedMovieResponse] = await Promise.all([
+      fetchGenres(genres),
+      getMovies({
+        category,
+        page,
+      }),
+    ]);
+    setGenres(fetchedGenres);
     setMovieResponse(fetchedMovieResponse);
   }, [genres, category, page, setGenres]);
 
@@ -45,13 +39,13 @@ const Home = () => {
     fetchData();
   }, [fetchData]);
 
-  if (!genres || !movieResponse) return <LoadingSpinner />;
-  const initialPage = routeParams.page ? parseInt(routeParams.page, 10) - 1 : 0;
+  if (!genres.length || !movieResponse) return <LoadingSpinner />;
+  const initialPage = getInitialPage(routeParams.page);
 
   return (
     <>
       <Helmet>
-        <title>MovieX</title>
+        <title>MFlix</title>
       </Helmet>
       <MovieList
         movies={movieResponse.results}

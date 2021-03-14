@@ -6,6 +6,7 @@ import { usePrevious } from 'hooks/usePrevious';
 import { searchMovies } from 'api/movieService';
 import { MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
+import { fetchGenres, getInitialPage } from 'helper';
 import { SEARCH_PATH } from '../constants';
 
 type RouteParams = {
@@ -15,7 +16,7 @@ type RouteParams = {
 
 const Search = () => {
   const [movieResponse, setMovieResponse] = useState<MoviesResponse>();
-  const { genres } = useAppContext();
+  const { genres, setGenres } = useAppContext();
   const history = useHistory();
   const { query, page } = useParams<RouteParams>();
   const prevQuery = usePrevious(query);
@@ -29,20 +30,24 @@ const Search = () => {
   const fetchData = useCallback(async () => {
     if (prevQuery !== query || prevPage !== page) {
       const pageNumber = page ? parseInt(page, 10) : 1;
-      const fetchedMoviesResponse = await searchMovies({
-        query,
-        page: pageNumber,
-      });
+      const [fetchedGenres, fetchedMoviesResponse] = await Promise.all([
+        fetchGenres(genres),
+        searchMovies({
+          query,
+          page: pageNumber,
+        }),
+      ]);
+      setGenres(fetchedGenres);
       setMovieResponse(fetchedMoviesResponse);
     }
-  }, [page, prevPage, prevQuery, query]);
+  }, [genres, page, prevPage, prevQuery, query, setGenres]);
 
   useEffect(() => {
     fetchData();
   }, [fetchData]);
 
   if (!genres || !movieResponse) return <LoadingSpinner />;
-  const initialPage = page ? parseInt(page, 10) - 1 : 0;
+  const initialPage = getInitialPage(page);
   const titlePrefix = movieResponse.results?.length ? 'Search ' : 'No search ';
 
   return (
