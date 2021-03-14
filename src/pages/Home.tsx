@@ -15,7 +15,6 @@ type RouteParams = {
 
 const Home = () => {
   const { genres, setGenres } = useAppContext();
-  console.log(genres);
   const [movieResponse, setMovieResponse] = useState<MoviesResponse>();
   const routeParams = useParams<RouteParams>();
   const history = useHistory();

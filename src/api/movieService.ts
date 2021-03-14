@@ -24,7 +24,7 @@ export const getMovies = (params: { category: string; page: number }) =>
   fetchData<MoviesResponse>(`/movie/${params.category}`, { params: { page: params.page } });
 
 export const searchMovies = (params: { query: string; page: number }) =>
-  fetchData(`/search/movie`, {
+  fetchData<MoviesResponse>(`/search/movie`, {
     params: { query: params.query, page: params.page },
   });
 

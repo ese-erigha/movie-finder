@@ -15,7 +15,7 @@ const MovieList = (props: Props) => (
   <>
     <div className="d-flex flex-wrap justify-content-md-between justify-content-center">
       {props.movies.map((movie) => (
-        <MovieCard key={movie.title} movie={movie} genres={props.genres} />
+        <MovieCard key={`${movie.id}${movie.title}`} movie={movie} genres={props.genres} />
       ))}
     </div>
     <ReactPaginate

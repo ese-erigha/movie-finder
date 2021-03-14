@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import Search from 'components/Search';
+import Search from 'components/SearchForm';
 import { getPathsFromCurrentLocation, routeFilters } from 'helper';
 
 const HOME_PATH = 'movies';

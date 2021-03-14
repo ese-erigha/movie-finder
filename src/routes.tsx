@@ -14,7 +14,7 @@ const Routes = () => {
         exact
         component={Home}
       />
-      <Route path="/search/:query?/:page(\d+)?" exact component={Search} />
+      <Route path="/search/:query/:page(\d+)?" exact component={Search} />
       <Route path="/movie/:id(\d+)" exact component={MovieDetail} />
       <Redirect to="/movies" />
     </Switch>
