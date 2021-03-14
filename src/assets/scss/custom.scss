@@ -3,6 +3,9 @@
 body {
   background-color: $black;
 }
+main{
+  min-height: 80vh;
+}
 
 .no-border-radius {
   border-radius: 0%;

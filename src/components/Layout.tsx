@@ -9,7 +9,7 @@ const Layout = (props: PageProps) => {
     <>
       <Navbar />
       <div className="container mt-100">
-        {children}
+        <main>{children}</main>
         <Footer />
       </div>
     </>
