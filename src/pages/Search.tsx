@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import MovieList from 'components/MovieList';
 import { useAppContext } from 'context/AppContextManager';
-import { usePrevious } from 'hooks/usePrevious';
+import usePrevious from 'hooks/usePrevious';
 import { searchMovies } from 'api/movieService';
 import { MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
