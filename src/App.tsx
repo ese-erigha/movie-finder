@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import WithErrorHandler from 'hoc/withErrorHandler';
 import { AppContextProvider } from 'context/AppContextManager';
 import Layout from 'components/Layout';
 import LoadingSpinner from 'components/LoadingSpinner';
@@ -11,15 +12,17 @@ function App() {
   return (
     <HelmetProvider>
       <AppContextProvider>
-        <div className="App">
-          <Router>
-            <Layout>
-              <Suspense fallback={<LoadingSpinner />}>
-                <Routes />
-              </Suspense>
-            </Layout>
-          </Router>
-        </div>
+        <WithErrorHandler>
+          <div className="App">
+            <Router>
+              <Layout>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Routes />
+                </Suspense>
+              </Layout>
+            </Router>
+          </div>
+        </WithErrorHandler>
       </AppContextProvider>
     </HelmetProvider>
   );
