@@ -34,7 +34,8 @@ const Search = (): JSX.Element => {
 
   // Runs only once when page loads
   useEffect(() => {
-    const inputValue = basePath === SEARCH_PATH ? param ?? '' : input;
+    const defaultValue = '';
+    const inputValue = basePath === SEARCH_PATH ? param ?? defaultValue : defaultValue;
     setInput(inputValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
