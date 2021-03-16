@@ -1,8 +1,9 @@
-import { getPathsFromCurrentLocation } from 'helper';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useCallback, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import FormGroup from 'react-bootstrap/FormGroup';
 import { useHistory, useLocation } from 'react-router-dom';
+import debounce from 'lodash.debounce';
+import { getPathsFromCurrentLocation } from 'helper';
 import { SEARCH_PATH } from '../constants';
 
 const Search = (): JSX.Element => {
@@ -11,9 +12,7 @@ const Search = (): JSX.Element => {
   const { basePath, param } = getPathsFromCurrentLocation(pathname);
   const history = useHistory();
 
-  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    const query = event.target.value;
-    setInput(query);
+  const navToSearch = (query: string) => {
     let path = `/`;
     if (query.length >= 2) {
       path = `/${SEARCH_PATH}/${query}`;
@@ -21,10 +20,24 @@ const Search = (): JSX.Element => {
     history.push(path);
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debounceSearch = useCallback(
+    debounce((query) => navToSearch(query), 300),
+    [],
+  );
+
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value;
+    setInput(query);
+    debounceSearch(query);
+  };
+
+  // Runs only once when page loads
   useEffect(() => {
     const inputValue = basePath === SEARCH_PATH ? param ?? '' : input;
     setInput(inputValue);
-  }, [basePath, input, param]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="searchbar d-flex justify-content-start align-items-center">
