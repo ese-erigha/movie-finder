@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Search from 'components/SearchForm';
 import { getPathsFromCurrentLocation, routeFilters } from 'helper';
+import { WEBSITE_NAME } from '../constants';
 
 const HOME_PATH = 'movies';
 
@@ -36,7 +37,7 @@ const NavBar = () => {
   return (
     <Navbar fixed="top" bg="dark" variant="dark" expand="md" className="nav-menu bg-black">
       <Container>
-        <Navbar.Brand href="/">MFlix</Navbar.Brand>
+        <Navbar.Brand href="/">{WEBSITE_NAME}</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">{navItems}</Nav>
