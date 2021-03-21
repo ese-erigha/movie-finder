@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders the component 1`] = `
+<DocumentFragment>
+  <footer
+    class="footer text-center mt-4 mb-4 white"
+  >
+    © 2021 made with
+    <i
+      aria-hidden="true"
+      class="fa fa-heart heart space-left-7"
+    />
+    <span
+      class="space-left-7"
+    >
+      by
+    </span>
+    <a
+      class="space-left-7"
+      href="https://github.com/eseerigha/movie-finder"
+    >
+      eseerigha
+    </a>
+    <a
+      class="space-left-15"
+      href="https://developers.themoviedb.org/3/getting-started/introduction"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        class=""
+        src="tmdb_logo.png"
+      />
+    </a>
+  </footer>
+</DocumentFragment>
+`;

@@ -8,9 +8,9 @@ const Layout = (props: PageProps) => {
   return (
     <>
       <Navbar />
-      <div className="container mt-100">
-        <main>{children}</main>
-        <Footer />
+      <div data-testid="container" className="container mt-100">
+        <main data-testid="main">{children}</main>
+        <Footer data-testid="footer" />
       </div>
     </>
   );
