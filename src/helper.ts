@@ -23,4 +23,14 @@ export const fetchGenres = async (genres: Genre[]) => {
   return movieGenres?.genres ?? genres;
 };
 
+export const buildGenreText = (genres: Genre[], movieGenreIds?: number[]) => {
+  if (!movieGenreIds?.length) return '';
+  return movieGenreIds
+    .map((id) => {
+      const item = genres.find((genre) => genre.id === id);
+      return item ? item.name : null;
+    })
+    .join(', ');
+};
+
 export const getInitialPage = (page?: string) => (page ? parseInt(page, 10) - 1 : 0);

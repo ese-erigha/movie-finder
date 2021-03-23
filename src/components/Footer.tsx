@@ -11,12 +11,13 @@ const Footer = () => (
       eseerigha
     </a>
     <a
+      data-testid="tmdb-link"
       href="https://developers.themoviedb.org/3/getting-started/introduction"
       rel="noopener noreferrer"
       target="_blank"
       className="space-left-15"
     >
-      <Image src={tmdbLogo} />
+      <Image data-testid="tmdb-logo" src={tmdbLogo} />
     </a>
   </footer>
 );
