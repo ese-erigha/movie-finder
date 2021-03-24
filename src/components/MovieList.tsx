@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate';
 import MovieCard from 'components/MovieCard';
 import { Genre, Movie } from 'types';
 
-type Props = {
+export type Props = {
   movies: Movie[];
   genres: Genre[];
   pageCount: number;
@@ -16,12 +16,16 @@ const MovieList = (props: Props) => {
 
   return (
     <>
-      <div className="d-flex flex-wrap justify-content-md-between justify-content-center">
+      <div
+        data-testid="movie-list"
+        className="d-flex flex-wrap justify-content-md-between justify-content-center"
+      >
         {props.movies.map((movie) => (
           <MovieCard key={`${movie.id}${movie.title}`} movie={movie} genres={props.genres} />
         ))}
       </div>
       <ReactPaginate
+        data-test-id="pagination"
         previousLabel="&larr;"
         nextLabel="&rarr;"
         breakLabel="..."

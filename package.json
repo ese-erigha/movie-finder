@@ -21,7 +21,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "ts-mockery": "^1.2.0"
   },
   "scripts": {
     "start": "rescripts start",
@@ -102,7 +103,6 @@
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
-    "prettier-eslint-cli": "^5.0.0",
-    "ts-mockery": "^1.2.0"
+    "prettier-eslint-cli": "^5.0.0"
   }
 }
