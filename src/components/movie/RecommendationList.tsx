@@ -12,7 +12,7 @@ const RecommendationList = (props: Props) => {
   return (
     <div className="movie-recommendations">
       <h3 className="list-title list-title-dark mb-4">Recommendations</h3>
-      <div className="d-flex flex-wrap">
+      <div data-testid="movie-list" className="d-flex flex-wrap">
         {movies.map((movie) => (
           <MovieCard genres={genres} movie={movie} key={`m${movie.id}`} />
         ))}

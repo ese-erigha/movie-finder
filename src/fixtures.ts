@@ -3,8 +3,8 @@ import { Genre, Movie, Personnel, Image } from 'types';
 
 export const movie = Mock.of<Movie>({
   id: 12345,
-  poster_path: 'poster_path',
-  backdrop_path: 'backdrop_path',
+  poster_path: '/poster_path',
+  backdrop_path: '/backdrop_path',
   title: 'title',
   vote_average: 9.5,
   genre_ids: [1, 2, 3],
