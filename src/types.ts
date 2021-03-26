@@ -56,7 +56,7 @@ export type Personnel = {
   order: number;
   original_name: string;
   popularity: number;
-  profile_path: string;
+  profile_path?: string;
 };
 
 export type PersonnelResponse = {
