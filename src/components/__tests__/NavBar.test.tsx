@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import NavBar from 'components/NavBar';
 import { createMemoryHistory } from 'history';
+import { routeFilters } from 'helper';
 import { WEBSITE_NAME } from '../../constants';
 
 jest.mock('components/SearchForm', () => () => <div data-testid="search-form" />);
@@ -22,19 +23,14 @@ describe('NavBar', () => {
   });
 
   test('should render website name', () => {
-    const regex = new RegExp(`${WEBSITE_NAME}`);
-    expect(screen.getByText(regex)).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(`${WEBSITE_NAME}`))).toBeInTheDocument();
   });
 
   test('should render all navbar links with active element as popular', () => {
-    expect(screen.getByText(/Popular/)).toBeInTheDocument();
-    expect(screen.getByText(/Top rated/)).toBeInTheDocument();
-    expect(screen.getByText(/Upcoming/)).toBeInTheDocument();
-    expect(screen.getByText(/Now playing/)).toBeInTheDocument();
-
+    routeFilters.forEach(({ value }) => expect(screen.getByText(value)).toBeInTheDocument());
     expect(dom.getElementsByClassName('active').length).toBe(1);
     const activeElement = dom.getElementsByClassName('active')[0];
-    expect(activeElement).toHaveTextContent('Popular');
+    expect(activeElement).toHaveTextContent(routeFilters[0].value);
   });
 
   test('should render search form', () => {

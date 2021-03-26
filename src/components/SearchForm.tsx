@@ -46,7 +46,6 @@ const Search = (): JSX.Element => {
       <Form>
         <FormGroup>
           <Form.Control
-            data-testid="search-form"
             type="text"
             placeholder="Search by movie title"
             value={input}

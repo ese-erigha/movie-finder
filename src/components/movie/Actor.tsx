@@ -15,11 +15,9 @@ const Actor = (actor: Personnel) => (
       <div className="movie-cast__nophoto">NO PHOTO</div>
     )}
     <div className="movie-cast__info">
-      <span data-testid="name">{actor.name}</span>
+      <span>{actor.name}</span>
       <br />
-      <span data-testid="character" className="small">
-        {actor.character}
-      </span>
+      <span className="small">{actor.character}</span>
     </div>
   </div>
 );

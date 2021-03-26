@@ -18,25 +18,25 @@ const renderWithRoute = (path: string) => {
 describe('NavBar', () => {
   test('should render search form with empty input on movies route', () => {
     renderWithRoute('/movies');
-    expect(screen.getByTestId('search-form')).toBeInTheDocument();
     const input = screen.getByRole('textbox') as HTMLInputElement;
+    expect(input).toBeInTheDocument();
     expect(input.value).toEqual('');
   });
 
   test('should render search form with query on search route', () => {
     const query = 'red';
     renderWithRoute(`/search/${query}`);
-    expect(screen.getByTestId('search-form')).toBeInTheDocument();
     // Needed to cast since HTMLElement does not contain "value" property
     const input = screen.getByPlaceholderText('Search by movie title') as HTMLInputElement;
+    expect(input).toBeInTheDocument();
     expect(input.value).toEqual(query);
   });
 
   test('should change input value when user types', () => {
     const query = 'red';
     renderWithRoute('/movies');
-    expect(screen.getByTestId('search-form')).toBeInTheDocument();
     const input = screen.getByRole('textbox') as HTMLInputElement;
+    expect(input).toBeInTheDocument();
     expect(input.value).toEqual('');
 
     userEvent.type(input, query);
