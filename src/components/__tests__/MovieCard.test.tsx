@@ -16,7 +16,7 @@ describe('MovieCard', () => {
     expect(img).toHaveAttribute('src', `${MOVIE_DB_IMAGE_URL.medium}${movie.poster_path}`);
     expect(img).toHaveAttribute('alt', 'title');
     expect(screen.getByTestId('link')).toBeInTheDocument();
-    expect(screen.getByTestId('title')).toBeInTheDocument();
+    expect(screen.getByText('title')).toBeInTheDocument();
     expect(mockBuildGenreText).toHaveBeenCalledWith(genres, movie.genre_ids);
   };
 
@@ -24,7 +24,7 @@ describe('MovieCard', () => {
     mockBuildGenreText.mockReturnValueOnce(genres[0].name);
     render(<MovieCard movie={movie} genres={genres} />);
     runCommonAssertions();
-    expect(screen.getByTestId('rating')).toBeInTheDocument();
+    expect(screen.getByText(`${movie.vote_average}`)).toBeInTheDocument();
     expect(screen.getByTestId('genre')).toBeInTheDocument();
   });
 
@@ -33,7 +33,7 @@ describe('MovieCard', () => {
     const updatedMovie = { ...movie, vote_average: 0 };
     render(<MovieCard movie={updatedMovie} genres={genres} />);
     runCommonAssertions();
-    expect(screen.queryByTestId('rating')).toBeNull();
+    expect(screen.queryByText(`${updatedMovie.vote_average}`)).not.toBeInTheDocument();
     expect(screen.getByTestId('genre')).toBeInTheDocument();
   });
 
@@ -41,7 +41,7 @@ describe('MovieCard', () => {
     mockBuildGenreText.mockReturnValueOnce('');
     render(<MovieCard movie={movie} genres={genres} />);
     runCommonAssertions();
-    expect(screen.getByTestId('rating')).toBeInTheDocument();
+    expect(screen.getByText(`${movie.vote_average}`)).toBeInTheDocument();
     expect(screen.queryByTestId('genre')).toBeNull();
   });
 });

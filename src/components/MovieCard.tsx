@@ -26,13 +26,9 @@ const MovieCard = (props: Props) => {
         />
         <Card.Body>
           {movie.vote_average > 0 && (
-            <span data-testid="rating" className="card-rating text-center">
-              {movie.vote_average}
-            </span>
+            <span className="card-rating text-center">{movie.vote_average}</span>
           )}
-          <Card.Title data-testid="title" className="mr-4">
-            {movie.title}
-          </Card.Title>
+          <Card.Title className="mr-4">{movie.title}</Card.Title>
           {genreText && (
             <p data-testid="genre" className="small mb-0">
               {genreText}
