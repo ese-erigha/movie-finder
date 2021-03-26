@@ -36,7 +36,7 @@ const Description = (movie: Movie) => {
           </div>
         </div>
         <p className="movie__overview">{movie.overview}</p>
-        {movie.genres.length && (
+        {movie.genres.length > 0 && (
           <div data-testid="genre-list">
             <span className="mr-2">Genres:</span>{' '}
             {movie.genres.map((genre) => (

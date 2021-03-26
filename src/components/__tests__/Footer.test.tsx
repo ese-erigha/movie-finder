@@ -20,4 +20,7 @@ describe('Footer', () => {
     expect(screen.getByTestId('tmdb-logo')).toBeInTheDocument();
     expect(screen.getByTestId('tmdb-link')).toBeInTheDocument();
   });
+  test('should contain footer text', () => {
+    expect(screen.getByText(/2021 made with/)).toBeInTheDocument();
+  });
 });

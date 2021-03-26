@@ -5,7 +5,9 @@ exports[`Footer renders the component 1`] = `
   <footer
     class="footer text-center mt-4 mb-4 white"
   >
-    © 2021 made with
+    <span>
+      © 2021 made with
+    </span>
     <i
       aria-hidden="true"
       class="fa fa-heart heart space-left-7"
