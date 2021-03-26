@@ -18,7 +18,6 @@ describe('Cast', () => {
     const input = screen.getByRole('checkbox');
     expect(input).toBeInTheDocument();
     expect(input).not.toBeChecked();
-
     const actorListWrapper = screen.getByTestId('actor-list');
     expect(actorListWrapper).toBeInTheDocument();
     expect(actorListWrapper.childElementCount).toEqual(6);

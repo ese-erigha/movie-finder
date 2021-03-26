@@ -9,8 +9,7 @@ type Props = {
   images: Image[];
 };
 
-const Gallery = (props: Props) => {
-  const { images } = props;
+const Gallery = ({ images }: Props) => {
   const imagesForGallery = images.map((image) => ({
     original: `${MOVIE_DB_IMAGE_URL.original}${image.file_path}`,
     thumbnail: `${MOVIE_DB_IMAGE_URL.small}${image.file_path}`,

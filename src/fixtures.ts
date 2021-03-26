@@ -1,5 +1,5 @@
 import { Mock } from 'ts-mockery';
-import { Genre, Movie, Personnel } from 'types';
+import { Genre, Movie, Personnel, Image } from 'types';
 
 export const movie = Mock.of<Movie>({
   id: 12345,
@@ -36,3 +36,8 @@ export const personnels = Mock.of<Personnel[]>(
     (item) => ({ ...personnel, id: item } as Personnel),
   ),
 );
+
+const image = Mock.of<Image>({
+  file_path: '/file-path',
+});
+export const images: Image[] = [image, image];

@@ -5,7 +5,7 @@ import { movie } from 'fixtures';
 import { MOVIE_DB_IMAGE_URL } from 'api/movieService';
 import { Movie } from 'types';
 
-describe('description', () => {
+describe('Description', () => {
   const runCommonAssertions = (movieData: Movie) => {
     const img = screen.getByRole('img');
     expect(img).toHaveAttribute('src', `${MOVIE_DB_IMAGE_URL.medium}${movieData.poster_path}`);
