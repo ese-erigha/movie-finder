@@ -6,8 +6,18 @@ export const movie = Mock.of<Movie>({
   poster_path: 'poster_path',
   backdrop_path: 'backdrop_path',
   title: 'title',
-  vote_average: 2,
+  vote_average: 9.5,
   genre_ids: [1, 2, 3],
+  release_date: '2021-03-03',
+  overview: 'overview',
+  tagline: 'A quest to save her world.',
+  runtime: 107,
+  budget: 200000000,
+  genres: [
+    { id: 16, name: 'Animation' },
+    { id: 12, name: 'Adventure' },
+    { id: 14, name: 'Fantasy' },
+  ],
 });
 
 export const genres: Genre[] = [
