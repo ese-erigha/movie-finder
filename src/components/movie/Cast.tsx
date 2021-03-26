@@ -7,8 +7,7 @@ type Props = {
   actors: Personnel[];
 };
 
-const Cast = (props: Props) => {
-  const { actors } = props;
+const Cast = ({ actors }: Props) => {
   const [showAll, setShowAll] = useState(false);
   const actorsToShow = showAll ? actors : actors.slice(0, 6);
   const showAllHandler = () => {
@@ -36,7 +35,10 @@ const Cast = (props: Props) => {
           </Form>
         </div>
       </div>
-      <div className="movie-cast__list d-flex flex-wrap justify-content-md-center justify-content-lg-start justify-content-center align-items-stretch">
+      <div
+        data-testid="actor-list"
+        className="movie-cast__list d-flex flex-wrap justify-content-md-center justify-content-lg-start justify-content-center align-items-stretch"
+      >
         {actorsToShow.map((actor) => (
           <Actor key={`${actor.id}${actor.character}`} {...actor} />
         ))}

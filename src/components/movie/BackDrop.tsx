@@ -4,6 +4,7 @@ import { Movie } from 'types';
 
 const BackDrop = ({ backdrop_path }: Movie) => (
   <div
+    data-testid="backdrop"
     className="movie-backdrop w-100 h-100 position-fixed fixed-top"
     style={{
       backgroundSize: 'cover',
