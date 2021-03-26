@@ -32,7 +32,7 @@ const Search = (): JSX.Element => {
     debounceSearch(query);
   };
 
-  // Runs only once when page loads
+  // Runs only once - when page loads
   useEffect(() => {
     const defaultValue = '';
     const inputValue = basePath === SEARCH_PATH ? param ?? defaultValue : defaultValue;
@@ -46,6 +46,7 @@ const Search = (): JSX.Element => {
       <Form>
         <FormGroup>
           <Form.Control
+            data-testid="search-form"
             type="text"
             placeholder="Search by movie title"
             value={input}
