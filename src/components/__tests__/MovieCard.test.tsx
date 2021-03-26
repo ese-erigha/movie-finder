@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import MovieCard from 'components/MovieCard';
 import { MOVIE_DB_IMAGE_URL } from 'api/movieService';
 import { genres, movie } from 'fixtures';
-import { buildGenreText } from '../../helper';
+import { buildGenreText } from 'helper';
 
 const mockBuildGenreText = buildGenreText as jest.MockedFunction<typeof buildGenreText>;
 

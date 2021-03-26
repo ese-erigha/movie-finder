@@ -22,7 +22,7 @@ const NavBar = () => {
   const navItems = routeFilters.map((item) => {
     const navItemClass = classNames({
       filter: true,
-      active: item.key === routeFilterKey,
+      // active: item.key === routeFilterKey,
     });
 
     return (
@@ -40,7 +40,9 @@ const NavBar = () => {
         <Navbar.Brand href="/">{WEBSITE_NAME}</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">{navItems}</Nav>
+          <Nav activeKey={`/${HOME_PATH}/${routeFilterKey}`} className="mr-auto">
+            {navItems}
+          </Nav>
           <Nav>
             <Nav.Item>
               {/* Fixed issue with spacebar text in search via https://github.com/react-bootstrap/react-bootstrap/issues/2934   */}
