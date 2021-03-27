@@ -41,3 +41,8 @@ const image = Mock.of<Image>({
   file_path: '/file-path',
 });
 export const images: Image[] = [image, image];
+
+export const axiosError = {
+  message: 'error-message',
+  code: '400',
+};

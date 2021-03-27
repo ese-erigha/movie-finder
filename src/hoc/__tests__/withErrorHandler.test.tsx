@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import * as useHttpErrorHandler from 'hooks/useHttpErrorHandler';
-import WithErrorHandler from '../withErrorHandler';
+import WithErrorHandler from 'hoc/withErrorHandler';
 
 jest.mock('hooks/useHttpErrorHandler');
 
