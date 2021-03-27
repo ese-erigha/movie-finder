@@ -1,6 +1,9 @@
 import axios from 'axios';
 import * as config from '../config';
 
+// https://www.npmjs.com/package/nock#axios
+axios.defaults.adapter = require('axios/lib/adapters/http');
+
 const axiosCreate = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
   params: {

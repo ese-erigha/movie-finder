@@ -6,13 +6,17 @@ export interface HttpError {
   message: string;
 }
 
-const useHttpErrorHandler = (httpClient: AxiosInstance): [HttpError | null, () => void] => {
+export type HttpErrorHandlerHookResponse = {
+  error: HttpError | null;
+  clearErrorHandler: () => void;
+};
+
+const useHttpErrorHandler = (httpClient: AxiosInstance): HttpErrorHandlerHookResponse => {
   const [error, setError] = useState<HttpError | null>(null);
   const responseInterceptor = httpClient.interceptors.response.use(
     (res: AxiosResponse) => res,
     (err: HttpError) => {
       setError(err);
-      throw err;
     },
   );
 
@@ -22,10 +26,8 @@ const useHttpErrorHandler = (httpClient: AxiosInstance): [HttpError | null, () =
     },
     [httpClient.interceptors.response, responseInterceptor],
   );
-
   const clearErrorHandler = () => setError(null);
-
-  return [error, clearErrorHandler];
+  return { error, clearErrorHandler };
 };
 
 export default useHttpErrorHandler;

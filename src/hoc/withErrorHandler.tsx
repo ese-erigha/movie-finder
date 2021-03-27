@@ -6,8 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 const WithErrorHandler = ({ children }: PageProps) => {
-  const [error, clearErrorHandler] = useHttpErrorHandler(axiosInstance);
-
+  const { error, clearErrorHandler } = useHttpErrorHandler(axiosInstance);
   return (
     <>
       <Modal
@@ -18,11 +17,11 @@ const WithErrorHandler = ({ children }: PageProps) => {
         centered={true}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Error</Modal.Title>
         </Modal.Header>
         <Modal.Body>{error?.message ?? null}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={clearErrorHandler}>
+          <Button data-testid="close-button" variant="secondary" onClick={clearErrorHandler}>
             Close
           </Button>
         </Modal.Footer>

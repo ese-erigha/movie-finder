@@ -11,9 +11,10 @@ const contextDefaultValues: AppContextType = {
   setGenres: defaultFunc,
 };
 export const AppContext = React.createContext<AppContextType>(contextDefaultValues);
-export const AppContextProvider = ({ children }: PageProps) => {
+const AppContextProvider = ({ children }: PageProps) => {
   const [genres, setGenres] = useState<Genre[]>(contextDefaultValues.genres);
   return <AppContext.Provider value={{ genres, setGenres }}>{children}</AppContext.Provider>;
 };
+export default AppContextProvider;
 
 export const useAppContext = () => useContext(AppContext);
