@@ -1,5 +1,4 @@
-import { getGenres } from 'api/movieService';
-import { Genre, GenreResponse } from 'types';
+import { Genre } from 'types';
 
 export const routeFilters = [
   { key: 'popular', value: 'Popular' },
@@ -13,14 +12,6 @@ export const getPathsFromCurrentLocation = (pathname: string) => {
   const basePath = paths[1].toLowerCase();
   const param = paths[2] ?? null;
   return { basePath, param };
-};
-
-export const fetchGenres = async (genres: Genre[]) => {
-  let movieGenres: GenreResponse = {};
-  if (!genres.length) {
-    movieGenres = await getGenres();
-  }
-  return movieGenres?.genres ?? genres;
 };
 
 export const buildGenreText = (genres: Genre[], movieGenreIds?: number[]) => {

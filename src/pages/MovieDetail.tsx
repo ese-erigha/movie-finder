@@ -10,7 +10,7 @@ import { ImageResponse, Movie, MoviesResponse, PersonnelResponse } from 'types';
 import { getActors, getMovie, getMovieImages, getRecommendations } from 'api/movieService';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { useAppContext } from 'context/AppContextManager';
-import { fetchGenres } from 'helper';
+import { fetchGenres } from 'api/genreService';
 import { WEBSITE_NAME } from '../constants';
 
 type RouteParams = {

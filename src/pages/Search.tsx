@@ -7,7 +7,8 @@ import usePrevious from 'hooks/usePrevious';
 import { searchMovies } from 'api/movieService';
 import { MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
-import { fetchGenres, getInitialPage } from 'helper';
+import { getInitialPage } from 'helper';
+import { fetchGenres } from 'api/genreService';
 import { SEARCH_PATH, WEBSITE_NAME } from '../constants';
 
 type RouteParams = {

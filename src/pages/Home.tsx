@@ -3,10 +3,11 @@ import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getMovies } from 'api/movieService';
 import MovieList from 'components/MovieList';
-import { fetchGenres, getInitialPage, getPathsFromCurrentLocation, routeFilters } from 'helper';
+import { getInitialPage, getPathsFromCurrentLocation, routeFilters } from 'helper';
 import { FetchParams, MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { useAppContext } from 'context/AppContextManager';
+import { fetchGenres } from 'api/genreService';
 import { WEBSITE_NAME } from '../constants';
 
 const Home = () => {
