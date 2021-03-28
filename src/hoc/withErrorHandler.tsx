@@ -1,7 +1,7 @@
 import React from 'react';
 import useHttpErrorHandler from 'hooks/useHttpErrorHandler';
 import { PageProps } from 'types';
-import axiosInstance from 'api/axios';
+import { axiosInstance } from 'api/httpClient';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 

@@ -4,11 +4,10 @@ import * as config from '../config';
 // https://www.npmjs.com/package/nock#axios
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
-const axiosCreate = axios.create({
-  baseURL: 'https://api.themoviedb.org/3',
+export const axiosInstance = axios.create({
+  baseURL: config.MOVIE_DB_BASE_URL,
   params: {
     api_key: config.MOVIE_DB_API_KEY,
     language: 'en-US',
   },
 });
-export default axiosCreate;

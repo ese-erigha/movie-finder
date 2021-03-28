@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import { GenreResponse, ImageResponse, Movie, MoviesResponse, PersonnelResponse } from 'types';
-import axiosInstance from './axios';
+import { axiosInstance } from 'api/httpClient';
 
 const MOVIE_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/';
 export const MOVIE_DB_IMAGE_URL: {

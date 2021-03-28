@@ -1,5 +1,5 @@
 import { Genre, GenreResponse } from 'types';
-import { getGenres } from './movieService';
+import { getGenres } from 'api/movieService';
 
 export const fetchGenres = async (genres: Genre[]) => {
   let movieGenres: GenreResponse = {};
