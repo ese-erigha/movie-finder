@@ -8,19 +8,12 @@ import {
   getMovieImages,
   getRecommendations,
 } from 'api/movieService';
-import { movie, genres, personnels, images } from 'fixtures';
-import { ImageResponse, MoviesResponse, PersonnelResponse } from 'types';
+import { movie, genres, personnels, images, moviesResponse } from 'fixtures';
+import { ImageResponse, PersonnelResponse } from 'types';
 
 jest.mock('api/httpClient');
 
 const mockAxiosInstance = axiosInstance as jest.Mocked<typeof axiosInstance>;
-
-const moviesResponse: MoviesResponse = {
-  page: 1,
-  total_results: 2,
-  total_pages: 1,
-  results: [movie, movie],
-};
 
 describe('movieService', () => {
   describe('getMovies', () => {

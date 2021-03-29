@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
-import axiosInstance from 'api/httpClient';
+import { axiosInstance } from 'api/httpClient';
 import nock from 'nock';
 import WithErrorHandler from 'hoc/withErrorHandler';
 import userEvent from '@testing-library/user-event';

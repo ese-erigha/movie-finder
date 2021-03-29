@@ -2,12 +2,12 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getMovies } from 'api/movieService';
+import { fetchGenres } from 'api/genreService';
 import MovieList from 'components/MovieList';
 import { getInitialPage, getPathsFromCurrentLocation, routeFilters } from 'helper';
-import { FetchParams, MoviesResponse } from 'types';
+import { FetchParams, Genre, MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { useAppContext } from 'context/AppContextManager';
-import { fetchGenres } from 'api/genreService';
 import { WEBSITE_NAME } from '../constants';
 
 const Home = () => {
@@ -41,7 +41,7 @@ const Home = () => {
     fetchData();
   }, [fetchData]);
 
-  if (!genres.length || !movieResponse) return <LoadingSpinner />;
+  if (!genres?.length || !movieResponse) return <LoadingSpinner />;
   const initialPage = getInitialPage(routeParams.page);
   const route = routeFilters.find((item) => item.key === category);
 

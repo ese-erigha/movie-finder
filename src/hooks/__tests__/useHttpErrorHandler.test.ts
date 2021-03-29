@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import useHttpErrorHandler from 'hooks/useHttpErrorHandler';
-import axiosInstance from 'api/httpClient';
+import { axiosInstance } from 'api/httpClient';
 import nock from 'nock';
 import { act } from '@testing-library/react';
 import { axiosError } from 'fixtures';

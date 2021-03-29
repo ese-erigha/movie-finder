@@ -1,5 +1,5 @@
 import { Mock } from 'ts-mockery';
-import { Genre, Movie, Personnel, Image } from 'types';
+import { Genre, Movie, Personnel, Image, MoviesResponse } from 'types';
 
 export const movie = Mock.of<Movie>({
   id: 12345,
@@ -19,6 +19,13 @@ export const movie = Mock.of<Movie>({
     { id: 14, name: 'Fantasy' },
   ],
 });
+
+export const moviesResponse: MoviesResponse = {
+  page: 1,
+  total_results: 2,
+  total_pages: 4,
+  results: [movie, { ...movie, id: 123, title: 'titlee' }],
+};
 
 export const genres: Genre[] = [
   { id: 1, name: 'crime' },

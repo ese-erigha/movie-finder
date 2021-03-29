@@ -25,7 +25,7 @@ const MovieList = (props: Props) => {
         ))}
       </div>
       <ReactPaginate
-        data-test-id="pagination"
+        data-testid="pagination"
         previousLabel="&larr;"
         nextLabel="&rarr;"
         breakLabel="..."
