@@ -1,5 +1,13 @@
 import { Mock } from 'ts-mockery';
-import { Genre, Movie, Personnel, Image, MoviesResponse } from 'types';
+import {
+  Genre,
+  Movie,
+  Personnel,
+  Image,
+  MoviesResponse,
+  PersonnelResponse,
+  ImageResponse,
+} from 'types';
 
 export const movie = Mock.of<Movie>({
   id: 12345,
@@ -44,10 +52,21 @@ export const personnels = Mock.of<Personnel[]>(
   ),
 );
 
+export const personnelResponse: PersonnelResponse = {
+  id: movie.id.toString(),
+  cast: personnels,
+  crew: personnels,
+};
+
 const image = Mock.of<Image>({
   file_path: '/file-path',
 });
 export const images: Image[] = [image, image];
+export const imageResponse: ImageResponse = {
+  id: movie.id.toString(),
+  backdrops: images,
+  posters: images,
+};
 
 export const axiosError = {
   message: 'error-message',

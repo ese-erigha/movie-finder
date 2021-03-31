@@ -5,7 +5,7 @@ import { getMovies } from 'api/movieService';
 import { fetchGenres } from 'api/genreService';
 import MovieList from 'components/MovieList';
 import { getInitialPage, getPathsFromCurrentLocation, routeFilters } from 'helper';
-import { FetchParams, Genre, MoviesResponse } from 'types';
+import { FetchParams, MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { useAppContext } from 'context/AppContextManager';
 import { WEBSITE_NAME } from '../constants';

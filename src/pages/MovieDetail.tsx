@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useParams } from 'react-router-dom';
+import { getActors, getMovie, getMovieImages, getRecommendations } from 'api/movieService';
+import { fetchGenres } from 'api/genreService';
 import BackDrop from 'components/movie/BackDrop';
 import Description from 'components/movie/Description';
 import Cast from 'components/movie/Cast';
 import Gallery from 'components/movie/Gallery';
 import RecommendationList from 'components/movie/RecommendationList';
-import { useParams } from 'react-router-dom';
 import { ImageResponse, Movie, MoviesResponse, PersonnelResponse } from 'types';
-import { getActors, getMovie, getMovieImages, getRecommendations } from 'api/movieService';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { useAppContext } from 'context/AppContextManager';
-import { fetchGenres } from 'api/genreService';
 import { WEBSITE_NAME } from '../constants';
 
 type RouteParams = {

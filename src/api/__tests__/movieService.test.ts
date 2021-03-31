@@ -8,8 +8,8 @@ import {
   getMovieImages,
   getRecommendations,
 } from 'api/movieService';
-import { movie, genres, personnels, images, moviesResponse } from 'fixtures';
-import { ImageResponse, PersonnelResponse } from 'types';
+import { movie, genres, images, moviesResponse, personnelResponse, imageResponse } from 'fixtures';
+import { ImageResponse } from 'types';
 
 jest.mock('api/httpClient');
 
@@ -54,11 +54,6 @@ describe('movieService', () => {
 
   describe('getActors', () => {
     test('should get actors', async () => {
-      const personnelResponse: PersonnelResponse = {
-        id: movie.id.toString(),
-        cast: personnels,
-        crew: personnels,
-      };
       mockAxiosInstance.get.mockResolvedValueOnce({ data: personnelResponse });
       await expect(getActors(movie.id.toString())).resolves.toEqual(personnelResponse);
       expect(mockAxiosInstance.get).toHaveBeenCalledWith(`/movie/${movie.id}/credits`, undefined);
@@ -67,11 +62,6 @@ describe('movieService', () => {
 
   describe('getMovieImages', () => {
     test('should get images', async () => {
-      const imageResponse: ImageResponse = {
-        id: movie.id.toString(),
-        backdrops: images,
-        posters: images,
-      };
       mockAxiosInstance.get.mockResolvedValueOnce({ data: imageResponse });
       await expect(getMovieImages(movie.id.toString())).resolves.toEqual(imageResponse);
       expect(mockAxiosInstance.get).toHaveBeenCalledWith(`/movie/${movie.id}/images`, {
