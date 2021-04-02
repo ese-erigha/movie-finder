@@ -35,7 +35,8 @@ const Home = () => {
     ]);
     setGenres(fetchedGenres);
     setMovieResponse(fetchedMovieResponse);
-  }, [genres, category, page, setGenres]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category, page]);
 
   useEffect(() => {
     fetchData();

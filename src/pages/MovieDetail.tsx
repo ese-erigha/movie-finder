@@ -44,7 +44,8 @@ const MovieDetail = () => {
     setImageResponse(fetchedImages);
     setMoviesResponse(fetchedRecommendations);
     setGenres(fetchedGenres);
-  }, [genres, id, setGenres]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   useEffect(() => {
     fetchData();

@@ -5,10 +5,10 @@ import MovieList from 'components/MovieList';
 import { useAppContext } from 'context/AppContextManager';
 import usePrevious from 'hooks/usePrevious';
 import { searchMovies } from 'api/movieService';
+import { fetchGenres } from 'api/genreService';
 import { MoviesResponse } from 'types';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { getInitialPage } from 'helper';
-import { fetchGenres } from 'api/genreService';
 import { SEARCH_PATH, WEBSITE_NAME } from '../constants';
 
 type RouteParams = {
@@ -42,13 +42,14 @@ const Search = () => {
       setGenres(fetchedGenres);
       setMovieResponse(fetchedMoviesResponse);
     }
-  }, [genres, page, prevPage, prevQuery, query, setGenres]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, query]);
 
   useEffect(() => {
     fetchData();
   }, [fetchData]);
 
-  if (!genres || !movieResponse) return <LoadingSpinner />;
+  if (!genres?.length || !movieResponse) return <LoadingSpinner />;
   const initialPage = getInitialPage(page);
   const titlePrefix = movieResponse.results?.length ? 'Search ' : 'No search ';
 
