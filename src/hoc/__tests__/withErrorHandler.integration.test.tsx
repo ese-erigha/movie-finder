@@ -45,7 +45,5 @@ describe('Integration test between useHttpErrorHandler hook and withErrorHandler
     expect(screen.queryByTestId('close-button')).not.toBeInTheDocument();
     expect(screen.queryByText('Error')).not.toBeInTheDocument();
     expect(screen.queryByText(`${axiosError.message}`)).not.toBeInTheDocument();
-
-    screen.debug();
   });
 });

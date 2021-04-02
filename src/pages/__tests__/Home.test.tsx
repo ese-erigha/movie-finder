@@ -34,22 +34,22 @@ describe('Home', () => {
     mockFetchGenres.mockResolvedValueOnce(genres);
     mockGetMovies.mockResolvedValueOnce(moviesResponse);
   });
-  // test('should render loading spinner', async () => {
-  //   const history = createMemoryHistory();
-  //   history.push(`/movies/${category}`);
-  //   render(
-  //     <HelmetProvider>
-  //       <AppContext.Provider value={{ genres: [], setGenres }}>
-  //         <Router history={history}>
-  //           <Route path={route.home}>
-  //             <Home />
-  //           </Route>
-  //         </Router>
-  //       </AppContext.Provider>
-  //     </HelmetProvider>
-  //   );
-  //   await waitFor(() => expect(screen.getByTestId('spinner')).toBeInTheDocument());
-  // });
+  test('should render loading spinner', async () => {
+    const history = createMemoryHistory();
+    history.push(`/movies/${category}`);
+    render(
+      <HelmetProvider>
+        <AppContext.Provider value={{ genres: [], setGenres }}>
+          <Router history={history}>
+            <Route path={route.home}>
+              <Home />
+            </Route>
+          </Router>
+        </AppContext.Provider>
+      </HelmetProvider>,
+    );
+    await waitFor(() => expect(screen.getByTestId('spinner')).toBeInTheDocument());
+  });
 
   test('should render movie list', async () => {
     const history = createMemoryHistory();

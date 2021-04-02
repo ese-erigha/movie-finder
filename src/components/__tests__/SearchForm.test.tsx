@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import SearchForm from 'components/SearchForm';
 import { createMemoryHistory } from 'history';
@@ -15,7 +15,7 @@ const renderWithRoute = (path: string) => {
   );
 };
 
-describe('NavBar', () => {
+describe('SearchForm', () => {
   test('should render search form with empty input on movies route', () => {
     renderWithRoute('/movies');
     const input = screen.getByRole('textbox') as HTMLInputElement;
@@ -32,7 +32,7 @@ describe('NavBar', () => {
     expect(input.value).toEqual(query);
   });
 
-  test('should change input value when user types', () => {
+  test('should change input value when user types', async () => {
     const query = 'red';
     renderWithRoute('/movies');
     const input = screen.getByRole('textbox') as HTMLInputElement;
@@ -40,6 +40,6 @@ describe('NavBar', () => {
     expect(input.value).toEqual('');
 
     userEvent.type(input, query);
-    expect(input.value).toEqual(query);
+    await waitFor(() => expect(input.value).toEqual(query));
   });
 });
