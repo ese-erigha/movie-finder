@@ -8,7 +8,15 @@ https://movie-maniax.netlify.app/movies
 
 A simple app for browsing movies powered by [The Movie Database API (TMBD)](https://developers.themoviedb.org/3/getting-started/introduction)
 
-Used:
+
+Application provides the following features:
+
+* Filter movies based on categories
+* Search for movie
+* View movie details
+
+
+Development:
 
 * [create-react-app](https://create-react-app.dev/)
 * [react-bootstrap](https://react-bootstrap.github.io/)
@@ -16,12 +24,13 @@ Used:
 * [react-context](https://reactjs.org/docs/context.html)
 * [font-awesome](https://fontawesome.com/v4.7.0/)
 * [axios](https://www.npmjs.com/package/axios)
+* [react-scripts](https://www.npmjs.com/package/react-scripts)
 
-Application provides the following features:
+Testing:
 
-* Filter movies based on categories
-* Search for movie
-* View movie details
+* [react-testing-library](https://www.npmjs.com/package/@testing-library/react)
+* [nock](https://www.npmjs.com/package/nock)
+* [history](https://www.npmjs.com/package/history)
 
 
 ## Getting Started
@@ -45,6 +54,7 @@ Create a .env file in the application root
 Add the following config to the .env file
 ```
 REACT_APP_MOVIE_DB_API_KEY=<insert api key>
+REACT_APP_MOVIE_DB_BASE_URL=<https://api.themoviedb.org/3>
 ```
 
 ### Running application
