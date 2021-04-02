@@ -1,13 +1,14 @@
 import React from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { act, render, screen, waitFor } from '@testing-library/react';
-import { Router } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import MovieDetail from 'pages/MovieDetail';
 import { getActors, getMovie, getMovieImages, getRecommendations } from 'api/movieService';
 import { fetchGenres } from 'api/genreService';
 import AppContextProvider, { AppContext } from 'context/AppContextManager';
 import { genres, imageResponse, movie, moviesResponse, personnelResponse } from 'fixtures';
+import { route } from 'routes';
 
 jest.mock('api/genreService');
 jest.mock('api/movieService');
@@ -37,20 +38,18 @@ describe('Home', () => {
   test('should render loading spinner', async () => {
     const history = createMemoryHistory();
     history.push(`/movie/1234567`);
-    act(() => {
-      render(
-        <HelmetProvider>
-          <AppContext.Provider value={{ genres: [], setGenres }}>
-            <Router history={history}>
+    render(
+      <HelmetProvider>
+        <AppContext.Provider value={{ genres: [], setGenres }}>
+          <Router history={history}>
+            <Route path={route.movie}>
               <MovieDetail />
-            </Router>
-          </AppContext.Provider>
-        </HelmetProvider>,
-      );
-    });
-    await waitFor(() => {
-      expect(screen.getByTestId('spinner')).toBeInTheDocument();
-    });
+            </Route>
+          </Router>
+        </AppContext.Provider>
+      </HelmetProvider>,
+    );
+    await waitFor(() => expect(screen.getByTestId('spinner')).toBeInTheDocument());
   });
 
   test('should render movie detail', async () => {
@@ -61,18 +60,18 @@ describe('Home', () => {
         <HelmetProvider>
           <AppContextProvider>
             <Router history={history}>
-              <MovieDetail />
+              <Route path={route.movie}>
+                <MovieDetail />
+              </Route>
             </Router>
           </AppContextProvider>
         </HelmetProvider>,
       );
     });
-    await waitFor(() => {
-      expect(screen.getByTestId('backdrop')).toBeInTheDocument();
-      expect(screen.getByTestId('description')).toBeInTheDocument();
-      expect(screen.getByTestId('cast')).toBeInTheDocument();
-      expect(screen.getByTestId('gallery')).toBeInTheDocument();
-      expect(screen.getByTestId('recommendationList')).toBeInTheDocument();
-    });
+    await waitFor(() => expect(screen.getByTestId('backdrop')).toBeInTheDocument());
+    expect(screen.getByTestId('description')).toBeInTheDocument();
+    expect(screen.getByTestId('cast')).toBeInTheDocument();
+    expect(screen.getByTestId('gallery')).toBeInTheDocument();
+    expect(screen.getByTestId('recommendationList')).toBeInTheDocument();
   });
 });
