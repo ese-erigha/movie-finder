@@ -24,7 +24,7 @@ Development:
 * [react-context](https://reactjs.org/docs/context.html)
 * [font-awesome](https://fontawesome.com/v4.7.0/)
 * [axios](https://www.npmjs.com/package/axios)
-* [react-scripts](https://www.npmjs.com/package/react-scripts)
+* [rescripts](https://github.com/harrysolovay/rescripts)
 
 Testing:
 
