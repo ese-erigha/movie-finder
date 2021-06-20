@@ -1,9 +1,9 @@
 
-![Home Page](home.png?raw=true "MovieMania")
+![Home Page](home.png?raw=true "MFlix")
 
 # Movie-Finder-App
 
-https://movie-maniax.netlify.app/movies
+https://mflix.eseerigha.com/movies
 
 
 A simple app for browsing movies powered by [The Movie Database API (TMBD)](https://developers.themoviedb.org/3/getting-started/introduction)
@@ -75,5 +75,5 @@ serve -s build
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-![Alt text](movie.png?raw=true "MovieManiax")
+![Alt text](movie.png?raw=true "MFlix")
 
