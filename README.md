@@ -3,7 +3,7 @@
 
 # Movie-Finder-App
 
-https://mflix.eseerigha.com/movies
+Live URL - [https://movie-maniax.netlify.app/movies](https://movie-maniax.netlify.app/movies)
 
 
 A simple app for browsing movies powered by [The Movie Database API (TMBD)](https://developers.themoviedb.org/3/getting-started/introduction)
