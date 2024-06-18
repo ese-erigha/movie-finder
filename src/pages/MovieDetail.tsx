@@ -62,8 +62,8 @@ const MovieDetail = () => {
       <BackDrop {...movie} />
       <div className="d-flex flex-column">
         <Description {...movie} />
-        <Cast actors={personnelResponse.cast} />
         <Gallery images={imageResponse.backdrops} />
+        <Cast actors={personnelResponse.cast} />
         <RecommendationList genres={genres} movies={moviesResponse.results} />
       </div>
     </>
