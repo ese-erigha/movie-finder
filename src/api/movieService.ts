@@ -4,7 +4,7 @@ import { axiosInstance } from 'api/httpClient';
 
 const MOVIE_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/';
 const MOVIE_PATH = '/movie';
-const GENRE_LIST_PATH = `/genre${MOVIE_PATH}/list`
+const GENRE_LIST_PATH = `/genre${MOVIE_PATH}/list`;
 
 export const MOVIE_DB_IMAGE_URL: {
   small: string;
@@ -35,7 +35,8 @@ export const getGenres = () => fetchData<GenreResponse>(GENRE_LIST_PATH);
 
 export const getMovie = (id: string) => fetchData<Movie>(`${MOVIE_PATH}/${id}`);
 
-export const getActors = (id: string) => fetchData<PersonnelResponse>(`${MOVIE_PATH}/${id}/credits`);
+export const getActors = (id: string) =>
+  fetchData<PersonnelResponse>(`${MOVIE_PATH}/${id}/credits`);
 
 export const getMovieImages = (id: string) =>
   fetchData<ImageResponse>(`${MOVIE_PATH}/${id}/images`, { params: { language: 'null' } });
