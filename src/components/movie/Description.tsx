@@ -3,6 +3,7 @@ import { MOVIE_DB_IMAGE_URL } from 'api/movieService';
 import Image from 'react-bootstrap/Image';
 import Badge from 'react-bootstrap/Badge';
 import { Movie } from 'types';
+import { formatVote } from 'helper';
 
 const Description = (movie: Movie) => {
   const getDurationStr = (mins: number) => {
@@ -32,7 +33,7 @@ const Description = (movie: Movie) => {
         {movie.tagline && <h6 className="movie__tagline">{movie.tagline}</h6>}
         <div className="movie__control">
           <div title="Rating" className="movie__rating">
-            {movie.vote_average}
+            {formatVote(movie.vote_average)}
           </div>
         </div>
         <p className="movie__overview">{movie.overview}</p>

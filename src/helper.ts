@@ -25,3 +25,5 @@ export const buildGenreText = (genres: Genre[], movieGenreIds?: number[]) => {
 };
 
 export const getInitialPage = (page?: string) => (page ? parseInt(page, 10) - 1 : 0);
+
+export const formatVote = (vote: number) => parseFloat(vote.toFixed(1));
